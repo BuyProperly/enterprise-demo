@@ -101,6 +101,14 @@
           const { userAction = null } = body;
 
           switch (userAction) {
+            case "login":
+              // Add logic to run here after user clicks on login button
+              window.location.href = "login.html";
+              return;
+            case "signup":
+              // Add logic to run here after user clicks on signup button
+              window.location.href = "signup.html";
+              return;
             case "loggedin":
               // Add logic to run here after user email verification is done
               window.location.href = "deals.html";
