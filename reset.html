@@ -95,7 +95,7 @@
     ></iframe>
 
     <script>
-      function setVerifyIframeSrc() {
+      function setResetPasswordIframeSrc() {
         const params = new URLSearchParams(window.location.search);
         const userId = params.get("userId"),
           token = params.get("token"),
@@ -108,7 +108,7 @@
         }
       }
 
-      window.addEventListener("load", setVerifyIframeSrc);
+      window.addEventListener("load", setResetPasswordIframeSrc);
 
       window.addEventListener("message", (event) => {
         if (event && event.origin === "https://b2btest.buyproperly.ca") {
