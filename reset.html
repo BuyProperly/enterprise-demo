@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Tropiko</title>
+
+    <!-- slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+            <a class="navbar-brand" href="index.html">
+              <img src="images/logo.png" alt="" /><span> Tropiko </span>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div
+                style="width: 100%"
+                class="d-flex flex-column flex-lg-row align-items-center justify-content-between"
+              >
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index.html"
+                      >Home <span class="sr-only">(current)</span></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="deals.html"> Deals</a>
+                  </li>
+                </ul>
+                <iframe
+                  src="http://localhost:4200/header?source=1234230310"
+                  style="min-width: 320px; max-height: 70px"
+                  id="headerIframeId"
+                  frameborder="0"
+                ></iframe>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <iframe
+      src="http://localhost:4200/login?source=1234230310"
+      frameborder="0"
+      style="min-height: 100vh; min-width: 100%"
+      id="resetIframeId"
+    ></iframe>
+
+    <script>
+      function setVerifyIframeSrc() {
+        const params = new URLSearchParams(window.location.search);
+        const userId = params.get("userId"),
+          token = params.get("token"),
+          source = params.get("source");
+
+        if (userId && token && source) {
+          document.getElementById(
+            "resetIframeId"
+          ).src = `http://localhost:4200/reset?userId=${userId}&token=${token}&source=${source}`;
+        }
+      }
+
+      window.addEventListener("load", setVerifyIframeSrc);
+
+      window.addEventListener("message", (event) => {
+        if (event && event.origin === "http://localhost:4200") {
+          const body = JSON.parse(event.data);
+          console.log(body);
+          const { userAction = null } = body;
+
+          switch (userAction) {
+            case "passwordReset":
+              // Add logic to run here after user email verification is done
+              window.location.href = "login";
+              return;
+            case "loggedout":
+              // Add logic to run here after user is logged out
+              window.location.href = "login";
+              return;
+            default:
+              return;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

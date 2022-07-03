@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Tropiko</title>
+
+    <!-- slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="hero_area">
+      <!-- header section strats -->
+      <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+            <a class="navbar-brand" href="index.html">
+              <img src="images/logo.png" alt="" /><span> Tropiko </span>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div
+                style="width: 100%"
+                class="d-flex flex-column flex-lg-row align-items-center justify-content-between"
+              >
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index.html"
+                      >Home <span class="sr-only">(current)</span></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="deals.html"> Deals</a>
+                  </li>
+                </ul>
+                <iframe
+                  src="http://localhost:4200/header?source=1234230310"
+                  style="min-width: 320px; max-height: 70px"
+                  id="headerIframeId"
+                  frameborder="0"
+                ></iframe>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+      <!-- slider section -->
+      <section class="slider_section position-relative">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="slider_item-box">
+                <div class="slider_item-container">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="slider_item-detail">
+                          <div>
+                            <h1>
+                              Welcome to <br />
+                              Our Fruits Shop
+                            </h1>
+                            <p>
+                              There are many variations of passages of Lorem
+                              Ipsum available, but the majority have suffered
+                              alteration in some form, by injected humour, or
+                              randomised words which don't look even slightly
+                              believable.
+                            </p>
+                            <div class="d-flex">
+                              <a
+                                href="#"
+                                class="text-uppercase custom_orange-btn mr-3"
+                              >
+                                Shop Now
+                              </a>
+                              <a
+                                href="#"
+                                class="text-uppercase custom_dark-btn"
+                              >
+                                Contact Us
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="slider_img-box">
+                          <div>
+                            <img src="images/slide-img.png" alt="" class="" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- end slider section -->
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <script>
+      window.addEventListener("load", () => {
+        if (window.location.href.includes("page=verify")) {
+          const params = new URLSearchParams(window.location.search);
+
+          const userId = params.get("userId"),
+            token = params.get("token"),
+            source = params.get("source");
+
+          if (userId && token && source) {
+            window.location.href = `/verify?userId=${userId}&token=${token}&source=${source}`;
+          }
+        }
+
+        if (window.location.href.includes("page=reset")) {
+          const params = new URLSearchParams(window.location.search);
+
+          const userId = params.get("userId"),
+            token = params.get("token"),
+            source = params.get("source");
+
+          if (userId && token && source) {
+            window.location.href = `/reset?userId=${userId}&token=${token}&source=${source}`;
+          }
+        }
+      });
+
+      window.addEventListener("message", (event) => {
+        if (event && event.origin === "http://localhost:4200") {
+          const body = JSON.parse(event.data);
+          console.log(body);
+          const { userAction = null } = body;
+
+          switch (userAction) {
+            case "login":
+              // Add logic to run here after user clicks on login button
+              window.location.href = "login";
+              return;
+            case "signup":
+              // Add logic to run here after user clicks on signup button
+              window.location.href = "signup";
+              return;
+            case "loggedin":
+              // Add logic to run here after user is logged in
+              window.location.href = "deals";
+              return;
+            case "loggedout":
+              // Add logic to run here after user is logged out
+              window.location.href = "login";
+              return;
+            case "verified":
+              // Add logic to run here after user email verification is done
+              window.location.href = "login";
+              return;
+            case "passwordReset":
+              // Add logic to run here after user Password reset is completed
+              window.location.href = "login";
+              return;
+            case "openMyProfile":
+              // Add logic to run here to show user's profile page
+              window.location.href = "profile";
+              return;
+            default:
+              return;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
