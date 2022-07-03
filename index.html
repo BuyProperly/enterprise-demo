@@ -163,7 +163,7 @@
             source = params.get("source");
 
           if (userId && token && source) {
-            window.location.href = `/verify?userId=${userId}&token=${token}&source=${source}`;
+            window.location.href = `/verify.html?userId=${userId}&token=${token}&source=${source}`;
           }
         }
 
@@ -175,7 +175,7 @@
             source = params.get("source");
 
           if (userId && token && source) {
-            window.location.href = `/reset?userId=${userId}&token=${token}&source=${source}`;
+            window.location.href = `/reset.html?userId=${userId}&token=${token}&source=${source}`;
           }
         }
       });
@@ -189,31 +189,31 @@
           switch (userAction) {
             case "login":
               // Add logic to run here after user clicks on login button
-              window.location.href = "login";
+              window.location.href = "login.html";
               return;
             case "signup":
               // Add logic to run here after user clicks on signup button
-              window.location.href = "signup";
+              window.location.href = "signup.html";
               return;
             case "loggedin":
               // Add logic to run here after user is logged in
-              window.location.href = "deals";
+              window.location.href = "deals.html";
               return;
             case "loggedout":
               // Add logic to run here after user is logged out
-              window.location.href = "login";
+              window.location.href = "login.html";
               return;
             case "verified":
               // Add logic to run here after user email verification is done
-              window.location.href = "login";
+              window.location.href = "login.html";
               return;
             case "passwordReset":
               // Add logic to run here after user Password reset is completed
-              window.location.href = "login";
+              window.location.href = "login.html";
               return;
             case "openMyProfile":
               // Add logic to run here to show user's profile page
-              window.location.href = "profile";
+              window.location.href = "profile.html";
               return;
             default:
               return;
