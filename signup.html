@@ -14,7 +14,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Tropiko</title>
+    <title>United Breweries</title>
 
     <!-- slider stylesheet -->
     <link
@@ -43,7 +43,9 @@
         <div class="container">
           <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
             <a class="navbar-brand" href="index.html">
-              <img src="images/logo.png" alt="" /><span> Tropiko </span>
+              <img src="images/logo.png" alt="" /><span>
+                United Breweries
+              </span>
             </a>
             <button
               class="navbar-toggler"
@@ -73,7 +75,7 @@
                   </li>
                 </ul>
                 <iframe
-                  src="http://localhost:4200/header?source=1234230310"
+                  src="https://b2btest.buyproperly.ca/header?source=1234230310"
                   style="min-width: 320px; max-height: 70px"
                   id="headerIframeId"
                   frameborder="0"
@@ -85,7 +87,7 @@
       </header>
     </div>
     <iframe
-      src="http://localhost:4200/signup?source=1234230310"
+      src="https://b2btest.buyproperly.ca/signup?source=1234230310"
       frameborder="0"
       style="min-height: 100vh; min-width: 100%"
       id="signupIframeId"
@@ -93,7 +95,7 @@
 
     <script>
       window.addEventListener("message", (event) => {
-        if (event && event.origin === "http://localhost:4200") {
+        if (event && event.origin === "https://b2btest.buyproperly.ca") {
           const body = JSON.parse(event.data);
           console.log(body);
           const { userAction = null } = body;
