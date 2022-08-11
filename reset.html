@@ -95,6 +95,7 @@
     ></iframe>
 
     <script>
+      window.scrollTo(0, 0);
       function setResetPasswordIframeSrc() {
         const params = new URLSearchParams(window.location.search);
         const userId = params.get("userId"),
@@ -136,6 +137,10 @@
             case "showDeals":
               // Add logic to run here to show user's profile page
               window.location.href = "deals.html";
+              return;
+            case "openMyProfile":
+              // Add logic to run here to show user's profile page
+              window.location.href = "profile.html";
               return;
             default:
               return;
