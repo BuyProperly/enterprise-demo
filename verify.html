@@ -119,7 +119,8 @@
           switch (userAction) {
             case "verified":
               // Add logic to run here after user email verification is done
-              window.location.href = "login.html";
+              // window.location.href = "login.html";
+              console.log("User Verified");
               return;
             case "loggedout":
               // Add logic to run here after user is logged out
@@ -132,6 +133,14 @@
             case "signup":
               // Add logic to run here after user clicks on signup button
               window.location.href = "signup.html";
+              return;
+            case "openMyProfile":
+              // Add logic to run here to show user's profile page
+              window.location.href = "profile.html";
+              return;
+            case "showDeals":
+              // Add logic to run here to show user's profile page
+              window.location.href = "deals.html";
               return;
             default:
               return;

@@ -164,7 +164,7 @@
             source = params.get("source");
 
           if (userId && token && source) {
-            window.location.href = `/verify.html?userId=${userId}&token=${token}&source=${source}`;
+            window.location.href = `/verify?userId=${userId}&token=${token}&source=${source}`;
           }
         }
 
@@ -176,7 +176,7 @@
             source = params.get("source");
 
           if (userId && token && source) {
-            window.location.href = `/reset.html?userId=${userId}&token=${token}&source=${source}`;
+            window.location.href = `/reset?userId=${userId}&token=${token}&source=${source}`;
           }
         }
       });
