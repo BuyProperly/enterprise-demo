@@ -5,6 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BuyProperly Demo</title>
+    <!-- slider stylesheet -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Fontdiner+Swanky&family=Roboto:wght@500&display=swap");
       * {
@@ -24,7 +43,7 @@
         color: white;
       }
 
-      div {
+      section {
         display: flex;
         align-items: center;
         height: 100vh;
@@ -32,7 +51,7 @@
         width: calc(100% - 4rem);
         margin: 0 auto;
       }
-      div > * {
+      section > * {
         display: flex;
         flex-flow: column;
         align-items: center;
@@ -110,10 +129,62 @@
           max-width: 300px;
         }
       }
+      .header_section {
+        background: white;
+        border-bottom: 2px solid #eee;
+      }
     </style>
   </head>
   <body>
-    <div>
+    <div class="">
+      <header class="header_section">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+            <a class="navbar-brand" href="index.html">
+              <img src="images/logo.png" alt="" /><span>
+                BuyProperly Demo
+              </span>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div
+                style="width: 100%"
+                class="d-flex flex-column flex-lg-row align-items-center justify-content-between"
+              >
+                <ul class="navbar-nav">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index.html"
+                      >Home <span class="sr-only">(current)</span></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="deals.html"> Deals</a>
+                  </li>
+                </ul>
+                <iframe
+                  src="https://b2bprod.buyproperly.ca/header?source=1234230310"
+                  style="min-width: 320px; max-height: 70px"
+                  id="headerIframeId"
+                  frameborder="0"
+                ></iframe>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
+    <section id="error-section">
       <aside>
         <img
           src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4424790/Mirror.png"
@@ -126,8 +197,8 @@
           Either you aren't cool enough to visit this page or it doesn't exist
           <em>. . . like your social life.</em>
         </p>
-        <button>You can go now!</button>
+        <a href="index.html"><button>You can go now!</button></a>
       </main>
-    </div>
+    </section>
   </body>
 </html>
