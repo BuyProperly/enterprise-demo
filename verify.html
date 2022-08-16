@@ -75,7 +75,7 @@
                   </li>
                 </ul>
                 <iframe
-                  src="http://localhost:4200/header?source=1234230310"
+                  src="https://b2bprod.buyproperly.ca/header?source=1234230310"
                   style="min-width: 320px; max-height: 42px"
                   id="headerIframeId"
                   frameborder="0"
@@ -88,7 +88,7 @@
     </div>
 
     <iframe
-      src="http://localhost:4200/login?source=1234230310"
+      src="https://b2bprod.buyproperly.ca/login?source=1234230310"
       frameborder="0"
       style="min-height: 100vh; min-width: 100%"
       id="verifyIframeId"
@@ -105,14 +105,14 @@
         if (userId && token && source) {
           document.getElementById(
             "verifyIframeId"
-          ).src = `http://localhost:4200/verify?userId=${userId}&token=${token}&source=${source}`;
+          ).src = `https://b2bprod.buyproperly.ca/verify?userId=${userId}&token=${token}&source=${source}`;
         }
       }
 
       window.addEventListener("load", setVerifyIframeSrc);
 
       window.addEventListener("message", (event) => {
-        if (event && event.origin === "http://localhost:4200") {
+        if (event && event.origin === "https://b2bprod.buyproperly.ca") {
           const body = JSON.parse(event.data);
           console.log(body);
           const { userAction = null } = body;
